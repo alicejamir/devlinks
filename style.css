@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 :root {
+  --text-color: white;
+  --bg-url: url(assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(assets/moon-stars.svg);
+}
+
+.ligth {
+  --text-color: black;
+  --bg-url: url(assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(assets/sun.svg);
 }
 
 body {
@@ -14,11 +31,11 @@ body {
            background-size: cover;
    background: color image repeat position/size
        */
-  background: url(assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
 }
 body * {
   font-family: "Inter", sans-serif;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 #container {
@@ -42,6 +59,49 @@ body * {
   margin-top: 8px;
 }
 
+/* SWITCH */
+
+#switch {
+  position: relative;
+
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  z-index: 0;
+  left: 0;
+
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.ligth #switch button{
+  right: 0;
+  left: initial; /* Tem que colocar pra poder ele mover, porque faz com que o left folte para sua maneira inicial. */
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+
+  border-radius: 9999px;
+}
+
+/*LISTA*/
+
 ul {
   list-style: none;
 
@@ -59,9 +119,8 @@ ul li a {
 
   padding: 16px 24px;
 
-  background: rgba(255, 255, 255, 0.1);
-
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
 
   -webkit-backdrop-filter: blur(4px);
@@ -74,9 +133,9 @@ ul li a {
 }
 
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-color-hover);
 
-  border: 1.5px solid white;
+  border: 1.5px solid var(--text-color);
 }
 
 #social-links {
@@ -98,7 +157,7 @@ ul li a:hover {
 }
 
 #social-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--highlight-color);
 }
 
 footer {
