@@ -13,7 +13,7 @@
   --switch-bg-url: url(assets/moon-stars.svg);
 }
 
-.ligth {
+.light {
   --text-color: black;
   --bg-url: url(assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
@@ -84,7 +84,7 @@ body * {
   top: 50%;
 }
 
-.ligth #switch button{
+.light #switch button{
   right: 0;
   left: initial; /* Tem que colocar pra poder ele mover, porque faz com que o left folte para sua maneira inicial. */
 }
