@@ -81,11 +81,23 @@ body * {
 
   transform: translateY(-50%);
   top: 50%;
+
+  /*aqui não é necessário o forwards porque a propriedade final já é o left zero*/
+  animation: slide-back .3s;
 }
 
-.light #switch button{
-  right: 0;
-  left: initial; /* Tem que colocar pra poder ele mover, porque faz com que o left folte para sua maneira inicial. */
+/* Efeito ao passa o mouse em cima do button */
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
+}
+
+.light #switch button {
+
+animation: slide-in .3s forwards;
+/*forwards fala que quando a animação terminar, ela mantenha as propriedades que existem no to (Já que o padrão é ela começar e voltar para o inicio) */
+  /* 
+    right: 0;
+     left: initial; /* Tem que colocar pra poder ele mover, porque faz com que o left folte para sua maneira inicial. */
 }
 #switch span {
   display: block;
@@ -168,12 +180,35 @@ footer {
 /* media queries */
 
 /*       de 700 px para cima        */
-@media (min-width:700px) {
-:root {
-  --bg-url: url(assets/bg-desktop.jpg);
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(assets/bg-desktop-light.jpg);
+  }
 }
 
-.light {
-  --bg-url: url(assets/bg-desktop-light.jpg);
+/* Animação */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
 }
+
+/*Para fazer a ida, do dark para o light: Altera o right and left no .ligth #switch button para animation */
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
+/*Para fazer a volta, do light para o dark: Altera o right and left no  #switch button para animation */
