@@ -1,7 +1,7 @@
 <h1 align="center"> Devlinks </h1>
 
 <p align="center">
-Projeto desenvolvido no curso Diverver disponibilizado pelo Rocketseat e personalizado por Alice Jamir <br/>
+Projeto desenvolvido no curso Discover disponibilizado pelo Rocketseat e personalizado por Alice Jamir <br/>
 </p>
 
 <p align="center">
